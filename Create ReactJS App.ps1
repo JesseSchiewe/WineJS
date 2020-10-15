@@ -4,7 +4,7 @@
 #npx create-react-app my-app
 #cd app
 
-Set-Location "C:\Users\Jesse\Desktop\WineJS\app"
+Set-Location "C:\GitRepos\WineJS\app"
 #npm install react-hook-form
 #npm install react-awesome-stars-rating
 npm start

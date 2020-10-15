@@ -10,35 +10,24 @@ export default function App() {
 
   const [name, setName] = useState("");
 
+  const [count, setCount] = useState(0);
+  const [value1, setValue] = useState(1);
+
   function onSubmit(data) {
     console.log(data);
   }
 
-  function updateTextInput(val) {
-    document.getElementById('F2').value=document.getElementById('F1').value;
+  
+  let currentTEST = "9";
+  function updateTextInput(val,changeID) {
+    document.getElementById(changeID).value=val;
+    currentTEST=val;
   }
 
   function updateTextInput2(val) {
     alert(`Value: ${val}`);
     document.getElementById('F4').value=val;
   }
-
-
-  const RangeSlider = () => {
-
-    const [rangeval, setRangeval] = useState(null);
-  
-    return (
-      <div>
-        <input type="range" className="custom-range" min="199" max="3999" 
-         onChange={(event) => setRangeval(event.target.value)} />
-        <h4>The range value is {rangeval}</h4>
-      </div>
-    );
-  };
-
-
-
 
   console.log(errors);
 
@@ -84,10 +73,9 @@ export default function App() {
 
 
       <h2>Flavor Characteristics</h2>
-      <label for="Flavor Characteristics">Points (between 0 and 25):</label>
-      <input type="range" id="FlavorCharacteristics" name="FlavorCharacteristics" min="0" max="25" defaultValue="0" oninput="FlavorScore.value=FlavorCharacteristics.value" ref={register} />
-      
+      <input type="range" id="FlavorCharacteristics" name="FlavorCharacteristics" min="0" max="25" defaultValue="0" onChange={e => updateTextInput(e.target.value,'FlavorScore')} ref={register} />
       <input type="text" id="FlavorScore" name="FlavorScore" defaultValue="0" />
+      <div class="value">{currentTEST}</div>
 
       <h2>TEST STUFF</h2>
       <div class="value">0</div>
@@ -99,18 +87,24 @@ export default function App() {
 
 
       <h2>TEST AREA 3</h2>
-      <input type="range" id="F1" name="F1" min="0" max="25" defaultValue="0" onChange={updateTextInput} ref={register} />
-      <input type="text" id="F2" name="F2" value="0" />
+      <input type="range" id="F1" name="F1" min="0" max="25" defaultValue="0" onChange={e => updateTextInput(e.target.value,'F2')} ref={register} />
+      <input type="text" id="F2" name="F2" defaultvalue="0" />
 
 
       <h2>Test AREA 4</h2>
-      <input type="range" id="F3" name="F3" min="0" max="25" defaultValue="0" onChange={e => updateTextInput2("3")} ref={register} />
-      <input type="text" id="F4" name="F4" value="0" />
+      <input type="range" id="F3" name="F3" min="0" max="25" defaultValue="0" onChange={e => updateTextInput2(e.target.value)} ref={register} />
+      <input type="text" id="F4" name="F4" defaultvalue="0" />
 
       <h2>TEST AREA 5</h2>
       <input type="text" value={name} onChange={e => setName(e.target.value)} />
 
+      <h2>Test AREA 6</h2>
+      <p>You clicked {count} times</p>
+      <button onClick={() => setCount(count + 1)}>Click dis button</button>
 
+      <h2>Test AREA 7</h2>
+      <p>Your value is {value1}</p>
+      <input type="range" id="F3" name="F3" min="0" max="25" defaultValue="0" onChange={e => setValue(e.target.value)} ref={register} />
 
 
       <h2>Balance
