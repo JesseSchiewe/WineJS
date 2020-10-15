@@ -8,25 +8,22 @@ export default function App() {
   const { register, handleSubmit, errors } = useForm();
   //const onSubmit = data => console.log(data);
 
-  const [name, setName] = useState("");
-
-  const [count, setCount] = useState(0);
-
   const [valueNOSE, setValueNOSE] = useState(0);
   const [valueINTENSE, setValueINTENSE] = useState(0);
   const [valueCHAR, setValueCHAR] = useState(0);
   const [valueBAL, setValueBAL] = useState(0);
   const [valueLEN, setValueLEN] = useState(0);
-  //const [totalPoints] = (valueNOSE + valueINTENSE + valueCHAR + valueBAL + valueLEN)
-  const [pointTOTAL, setPointTotal] = useState(valueNOSE + valueINTENSE + valueCHAR + valueBAL + valueLEN);
-  //const [pointTOTAL, setPointTotal] = useState({totalPoints});
+  //const totalValue = (50 + Number(valueNOSE) + Number(valueINTENSE) + Number(valueCHAR) + Number(valueBAL) + Number(valueLEN))
+  let totalValue = (Number(valueNOSE) + Number(valueINTENSE) + Number(valueCHAR) + Number(valueBAL) + Number(valueLEN))
+  if ( totalValue !== 0 ) {
+    totalValue = 50 + totalValue
+  } 
 
-  const refresh = () =>{
-    //it re-renders the component
-    setPointTotal({})
-  }
+  let colorTEST = "Red"
+
 
   function onSubmit(data) {
+    alert("Successfully Submitted Review");
     console.log(data);
   }
 
@@ -54,38 +51,47 @@ export default function App() {
       <input type="text" placeholder="Wine Name" name="Wine Name" ref={register({required: true, maxLength: 100})} />
 
       <h2>Vintage</h2>
-      <input type="number" placeholder="Vintage" name="Vintage" ref={register} />
+      <input type="number" placeholder="Vintage" name="Vintage" ref={register({min: 1900,max: 2030})} />
 
-      <p></p>
-      <h2>Nose Intensity</h2>
+      <h3>Nose Intensity</h3>
       <div class="value">{valueNOSE}</div>
-      <input type="range" id="NoseIntensity" name="NoseIntensity" min="0" max="5" defaultValue="0" onChange={e => setValueNOSE(e.target.value)} ref={register} />
+      <input type="range" id="NoseIntensity" name="NoseIntensity" min="1" max="5" defaultValue="0" onChange={e => setValueNOSE(e.target.value)} ref={register} />
 
-      <p></p>
-      <h2>Flavor Intensity</h2>
+      <h3>Flavor Intensity</h3>
       <div class="value">{valueINTENSE}</div>
-      <input type="range" id="Flavor" name="Flavor" min="0" max="10" defaultValue="0" onChange={e => setValueINTENSE(e.target.value)} ref={register} />
+      <input type="range" id="FlavorIntensity" name="FlavorIntensity" min="1" max="10" defaultValue="0" onChange={e => setValueINTENSE(e.target.value)} ref={register} />
 
-      <p></p>
-      <h2>Flavor Characteristics</h2>
+      <h3>Flavor Characteristics</h3>
       {/* <input type="range" id="FlavorCharacteristics" name="FlavorCharacteristics" min="0" max="25" defaultValue="0" onChange={e => updateTextInput(e.target.value,'FlavorScore')} ref={register} /> */}
       <div class="value">{valueCHAR}</div>
-      <input type="range" id="Flavor" name="Flavor" min="0" max="25" defaultValue="0" onChange={e => setValueCHAR(e.target.value)} ref={register} />
+      <input type="range" id="FlavorCharacteristics" name="FlavorCharacteristics" min="1" max="25" defaultValue="0" onChange={e => setValueCHAR(e.target.value)} ref={register} />
 
-
-      <p></p>
-      <h2>Balance</h2>
+      <h3>Balance</h3>
       <div class="value">{valueBAL}</div>
-      <input type="range" id="Flavor" name="Flavor" min="0" max="5" defaultValue="0" onChange={e => setValueBAL(e.target.value)} ref={register} />
+      <input type="range" id="Balance" name="Balance" min="1" max="5" defaultValue="0" onChange={e => setValueBAL(e.target.value)} ref={register} />
 
-      <p></p>
-      <h2>Length</h2>
+      <h3>Length</h3>
       <div class="value">{valueLEN}</div>
-      <input type="range" id="Flavor" name="Flavor" min="0" max="5" defaultValue="0" onChange={e => setValueLEN(e.target.value)} ref={register} />
+      <input type="range" id="Length" name="Length" min="1" max="5" defaultValue="0" onChange={e => setValueLEN(e.target.value)} ref={register} />
 
-      <p></p>
+      <h4>Total</h4>
+      <div class="value">{totalValue}</div>
+      <input type="hidden" id="Total" name="Total" defaultValue={totalValue} ref={register}/>
+
+      <h2>Tasting Notes</h2>
+      <textarea name="TastingNotes" ref={register} />
+
+      {/* <p></p>
       <h2>Total</h2>
       <div class="value">{pointTOTAL}</div>
+
+      <h2>Test AREA 6</h2>
+      <p>You clicked {count} times</p>
+      <p>TotalValue: {Number(valueNOSE) + Number(valueBAL)}</p>
+      <button onClick={refresh}>Click dis button</button> */}
+
+
+
 
 {/* 
       <h2>TEST STUFF</h2>
@@ -115,16 +121,6 @@ export default function App() {
       <p>Your value is {value1}</p>
       <div class="value">{value1}</div>
       <input type="range" id="F3" name="F3" min="0" max="25" defaultValue="0" onChange={e => setValue1(e.target.value)} ref={register} /> */}
-
-
-      <h2>Test AREA 6</h2>
-      <p>You clicked {count} times</p>
-      <button onClick={refresh}>Click dis button</button>
-
-
-
-      <input type="number" placeholder="Total" name="Total" ref={register} />
-      <textarea name="Notes" placeholder="Wine Notes" ref={register} />
 
       <input type="submit" />
       
