@@ -5,8 +5,6 @@ import './App.css';
 import App from './App';
 import './SliderJS.css';
 
-//import './Slider.js';
-
 ReactDOM.render(
   <React.StrictMode>
     <App />
