@@ -11,17 +11,27 @@ export default function App() {
   const [name, setName] = useState("");
 
   const [count, setCount] = useState(0);
-  const [value1, setValue] = useState(1);
+
+  const [valueNOSE, setValueNOSE] = useState(0);
+  const [valueINTENSE, setValueINTENSE] = useState(0);
+  const [valueCHAR, setValueCHAR] = useState(0);
+  const [valueBAL, setValueBAL] = useState(0);
+  const [valueLEN, setValueLEN] = useState(0);
+  //const [totalPoints] = (valueNOSE + valueINTENSE + valueCHAR + valueBAL + valueLEN)
+  const [pointTOTAL, setPointTotal] = useState(valueNOSE + valueINTENSE + valueCHAR + valueBAL + valueLEN);
+  //const [pointTOTAL, setPointTotal] = useState({totalPoints});
+
+  const refresh = () =>{
+    //it re-renders the component
+    setPointTotal({})
+  }
 
   function onSubmit(data) {
     console.log(data);
   }
 
-  
-  let currentTEST = "9";
   function updateTextInput(val,changeID) {
     document.getElementById(changeID).value=val;
-    currentTEST=val;
   }
 
   function updateTextInput2(val) {
@@ -46,37 +56,38 @@ export default function App() {
       <h2>Vintage</h2>
       <input type="number" placeholder="Vintage" name="Vintage" ref={register} />
 
-      <h2>Nose Intensity
-        <select name="Nose Intensity" ref={register({ required: true })}>
-          <option value="1">1</option>
-          <option value="2">2</option>
-          <option value="3">3</option>
-          <option value="4">4</option>
-          <option value="5">5</option>
-        </select>
-      </h2>
+      <p></p>
+      <h2>Nose Intensity</h2>
+      <div class="value">{valueNOSE}</div>
+      <input type="range" id="NoseIntensity" name="NoseIntensity" min="0" max="5" defaultValue="0" onChange={e => setValueNOSE(e.target.value)} ref={register} />
 
-      <h2>Flavor Intensity
-        <select name="Flavor Intensity" ref={register({ required: true })}>
-          <option value="1">1</option>
-          <option value="2">2</option>
-          <option value="3">3</option>
-          <option value="4">4</option>
-          <option value="5">5</option>
-          <option value="6">6</option>
-          <option value="7">7</option>
-          <option value="8">8</option>
-          <option value="9">9</option>
-          <option value="10">10</option>
-        </select>
-      </h2>
+      <p></p>
+      <h2>Flavor Intensity</h2>
+      <div class="value">{valueINTENSE}</div>
+      <input type="range" id="Flavor" name="Flavor" min="0" max="10" defaultValue="0" onChange={e => setValueINTENSE(e.target.value)} ref={register} />
 
-
+      <p></p>
       <h2>Flavor Characteristics</h2>
-      <input type="range" id="FlavorCharacteristics" name="FlavorCharacteristics" min="0" max="25" defaultValue="0" onChange={e => updateTextInput(e.target.value,'FlavorScore')} ref={register} />
-      <input type="text" id="FlavorScore" name="FlavorScore" defaultValue="0" />
-      <div class="value">{currentTEST}</div>
+      {/* <input type="range" id="FlavorCharacteristics" name="FlavorCharacteristics" min="0" max="25" defaultValue="0" onChange={e => updateTextInput(e.target.value,'FlavorScore')} ref={register} /> */}
+      <div class="value">{valueCHAR}</div>
+      <input type="range" id="Flavor" name="Flavor" min="0" max="25" defaultValue="0" onChange={e => setValueCHAR(e.target.value)} ref={register} />
 
+
+      <p></p>
+      <h2>Balance</h2>
+      <div class="value">{valueBAL}</div>
+      <input type="range" id="Flavor" name="Flavor" min="0" max="5" defaultValue="0" onChange={e => setValueBAL(e.target.value)} ref={register} />
+
+      <p></p>
+      <h2>Length</h2>
+      <div class="value">{valueLEN}</div>
+      <input type="range" id="Flavor" name="Flavor" min="0" max="5" defaultValue="0" onChange={e => setValueLEN(e.target.value)} ref={register} />
+
+      <p></p>
+      <h2>Total</h2>
+      <div class="value">{pointTOTAL}</div>
+
+{/* 
       <h2>TEST STUFF</h2>
       <div class="value">0</div>
       <input type="range" min="0" max="10" step="1" ></input>
@@ -85,11 +96,9 @@ export default function App() {
       <input type="range" min="0" max="10" step="1" ></input>
       <div class="value"></div>
 
-
       <h2>TEST AREA 3</h2>
       <input type="range" id="F1" name="F1" min="0" max="25" defaultValue="0" onChange={e => updateTextInput(e.target.value,'F2')} ref={register} />
       <input type="text" id="F2" name="F2" defaultvalue="0" />
-
 
       <h2>Test AREA 4</h2>
       <input type="range" id="F3" name="F3" min="0" max="25" defaultValue="0" onChange={e => updateTextInput2(e.target.value)} ref={register} />
@@ -104,28 +113,15 @@ export default function App() {
 
       <h2>Test AREA 7</h2>
       <p>Your value is {value1}</p>
-      <input type="range" id="F3" name="F3" min="0" max="25" defaultValue="0" onChange={e => setValue(e.target.value)} ref={register} />
+      <div class="value">{value1}</div>
+      <input type="range" id="F3" name="F3" min="0" max="25" defaultValue="0" onChange={e => setValue1(e.target.value)} ref={register} /> */}
 
 
-      <h2>Balance
-        <select name="Balance" ref={register({ required: true })}>
-          <option value="1">1</option>
-          <option value="2">2</option>
-          <option value="3">3</option>
-          <option value="4">4</option>
-          <option value="5">5</option>
-        </select>
-      </h2>
+      <h2>Test AREA 6</h2>
+      <p>You clicked {count} times</p>
+      <button onClick={refresh}>Click dis button</button>
 
-      <h2>Length
-        <select name="Length" ref={register({ required: true })}>
-          <option value="1">1</option>
-          <option value="2">2</option>
-          <option value="3">3</option>
-          <option value="4">4</option>
-          <option value="5">5</option>
-        </select>
-      </h2>
+
 
       <input type="number" placeholder="Total" name="Total" ref={register} />
       <textarea name="Notes" placeholder="Wine Notes" ref={register} />
