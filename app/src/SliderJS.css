@@ -20,34 +20,61 @@ body {
   input[type="range"] {
     display: block;
     -webkit-appearance: none;
-    background-color: silver;
+    background-color:slategray;
     width: 70%;
-    height: 5px;
-    border-radius: 5px;
-    margin: 0px auto;
-    outline: 0;
+    height: 1px;
+    border-radius: 50px;
+    border-color: slategray;
+    border-width: 2px;
+    margin: 10px auto;
+    outline: 1px;
   }
   input[type="range"]::-webkit-slider-thumb {
     -webkit-appearance: none;
-    background-color: purple;
-    width: 23px;
-    height: 30px;
+    background-color:#000066;
+    width: 30px;
+    height: 38px;
     border-radius: 50%;
-    border: 2px solid white;
+    border: 1px solid white;
     cursor: pointer;
-    transition: .3s ease-in-out;
+    transition: .2s ease-in-out;
   }​
     input[type="range"]::-webkit-slider-thumb:hover {
       background-color: white;
-      border: 2px solid purple;
+      border: 2px solid #000066;
     }
     input[type="range"]::-webkit-slider-thumb:active {
-      transform: scale(3);
+      transform: scale(1.7);
+    }
+
+    input[hideit="true"] {
+        display: none;
+    }
+
+    textarea[hideit=true] {
+        display: none;
+    }
+
+
+    input[type="number"] {
+        border-color: grey;
+        width: 8em;
+    }
+
+    button[type="button"] {
+        color:black;
+        background-color: palevioletred;
+        font-family: sans-serif;
+        margin: 0em;
+        margin-top: 3em;
+        margin-left: 15%;
+        padding: 1px;
+
     }
 
     textarea {
         font-weight: 400;
-        background: white;
+        background: whitesmoke;
         color: black;
         border-color: grey;
         padding: 10px 15px;
