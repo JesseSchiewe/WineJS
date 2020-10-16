@@ -10,10 +10,10 @@ body {
     font-weight: bold;
     font-size: 4em;
     color: #000066;
-    width: 50%; 
+    width: 90%; 
     height: 30px;
     line-height: 0px;
-    margin: 10px auto;
+    margin: 0px;
     letter-spacing: -.07em;
     text-shadow: white 2px 2px 2px;
   }
@@ -21,12 +21,13 @@ body {
     display: block;
     -webkit-appearance: none;
     background-color:slategray;
-    width: 70%;
+    width: 63%;
     height: 1px;
-    border-radius: 50px;
+    border-radius: 60px;
     border-color: slategray;
     border-width: 2px;
-    margin: 10px auto;
+    margin-left: 10%;
+    margin-top: -8%;
     outline: 1px;
   }
   input[type="range"]::-webkit-slider-thumb {
@@ -50,10 +51,10 @@ body {
     input[hideit="true"] {
         display: none;
     }
-
     textarea[hideit=true] {
         display: none;
     }
+
     textarea[type="small"] {
         font-weight: 400;
         background: white;
@@ -67,7 +68,6 @@ body {
         box-sizing: border-box;
         font-size: 14px;
     }
-
 
     input[type="number"] {
         border-color: grey;
