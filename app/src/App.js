@@ -81,7 +81,7 @@ export default function App() {
       {/* <button name="TESTToggle" id="TESTToggle" onClick={alert(hideNoseIntensity)} >{hideNoseIntensity}</button> */}
       {/* <textarea name="NoseIntensityNotes" defaultValue={hideNoseIntensity ? "true" : "It worked"} hideit={hideNoseIntensity ? "true" : "It worked"} ref={register} /> */}
       <button type="button" onClick={toggleNoseNotes} value="" >Show/hide notes</button>
-      <textarea name="NoseIntensityNotes" defaultValue="Notes" hideit={hideNoseNotes ? "true" : "false"} ref={register} />
+      <textarea type="small" name="NoseIntensityNotes" hideit={hideNoseNotes ? "true" : "false"} ref={register} />
       {/* <h3>CURRENT: {hideNoseIntensity} </h3>
       <h3>Second: {hideNoseIntensity} </h3> */}
       {/* <p>{hideNoseIntensity}</p> */}
@@ -113,7 +113,7 @@ export default function App() {
       <div class="value">{valueINTENSE}</div>
       <input type="range" id="FlavorIntensity" name="FlavorIntensity" min="1" max="10" defaultValue="0" onChange={e => setValueINTENSE(e.target.value)} ref={register} />
       <button type="button" onClick={toggleIntenseNotes} value="" >Show/hide notes</button>
-      <textarea name="FlavorIntensityNotes" defaultValue="Notes" hideit={hideIntenseNotes ? "true" : "false"} ref={register} />
+      <textarea type="small" name="FlavorIntensityNotes" hideit={hideIntenseNotes ? "true" : "false"} ref={register} />
       {errors.FlavorIntensity && <p>Value must be at least 1</p> }
 
       <h3>Flavor Characteristics</h3>
@@ -121,21 +121,21 @@ export default function App() {
       <div class="value">{valueCHAR}</div>
       <input type="range" id="FlavorCharacteristics" name="FlavorCharacteristics" min="1" max="25" defaultValue="0" onChange={e => setValueCHAR(e.target.value)} ref={register} />
       <button type="button" onClick={toggleCharNotes} value="" >Show/hide notes</button>
-      <textarea name="FlavorCharacteristicsNotes" defaultValue="Notes" hideit={hideCharNotes ? "true" : "false"} ref={register} />
+      <textarea type="small" name="FlavorCharacteristicsNotes" hideit={hideCharNotes ? "true" : "false"} ref={register} />
       {errors.FlavorCharacteristics && <p>Value must be at least 1</p> }
 
       <h3>Balance</h3>
       <div class="value">{valueBAL}</div>
       <input type="range" id="Balance" name="Balance" min="1" max="5" defaultValue="0" onChange={e => setValueBAL(e.target.value)} ref={register} />
       <button type="button" onClick={toggleBalNotes} value="" >Show/hide notes</button>
-      <textarea name="BalanceNotes" defaultValue="Notes" hideit={hideBalNotes ? "true" : "false"} ref={register} />
+      <textarea type="small" name="BalanceNotes" hideit={hideBalNotes ? "true" : "false"} ref={register} />
       {errors.Balance && <p>Value must be at least 1</p> }
 
       <h3>Length</h3>
       <div class="value">{valueLEN}</div>
       <input type="range" id="Length" name="Length" min="1" max="5" defaultValue="0" onChange={e => setValueLEN(e.target.value)} ref={register} />
       <button type="button" onClick={toggleLenNotes} value="" >Show/hide notes</button>
-      <textarea name="LengthNotes" defaultValue="Notes" hideit={hideLenNotes ? "true" : "false"} ref={register} />
+      <textarea type="small" name="LengthNotes" hideit={hideLenNotes ? "true" : "false"} ref={register} />
       {errors.Length && <p>Value must be at least 1</p> }
 
       <h4>Total</h4>

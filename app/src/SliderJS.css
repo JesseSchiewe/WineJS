@@ -54,6 +54,19 @@ body {
     textarea[hideit=true] {
         display: none;
     }
+    textarea[type="small"] {
+        font-weight: 400;
+        background: white;
+        color: black;
+        border-color: grey;
+        padding: 10px 15px;
+        margin-left: 10%;
+        border-radius: 4px;
+        width: 80%;
+        height: 100px;
+        box-sizing: border-box;
+        font-size: 14px;
+    }
 
 
     input[type="number"] {
@@ -65,8 +78,8 @@ body {
         color:black;
         background-color: palevioletred;
         font-family: sans-serif;
-        margin: 0em;
-        margin-top: 3em;
+        margin: 1em;
+        margin-top: 2em;
         margin-left: 15%;
         padding: 1px;
 
