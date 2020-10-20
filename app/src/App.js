@@ -1,5 +1,6 @@
 import React, {useState, useCallback} from 'react';
 import { useForm } from 'react-hook-form';
+import outputForm from './OutputForm';
 import useToggle from './useToggle';
 
 export default function App() {
@@ -44,8 +45,11 @@ export default function App() {
   }; */
 
   function onSubmit(data) {
-    alert("Successfully Submitted Review");
+    alert("Successfully submitted form");
+    alert(data.form)
+    alert("Wine:" + data.WineName + " Nose Intensity:" + data.NoseIntensity);
     console.log(data);
+    outputForm(data);
   }
 
   function updateTextInput(val,changeID) {
