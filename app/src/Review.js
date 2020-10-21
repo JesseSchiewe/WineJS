@@ -46,7 +46,7 @@ export const Review = () => (
     function onSubmit(data) {
         alert("Successfully submitted form");
         alert(data.form)
-        alert("Wine:" + data.WineName + " Nose Intensity:" + data.NoseIntensity);
+        //alert("Wine:" + data.WineName + " Nose Intensity:" + data.NoseIntensity);
         console.log(data);
         outputForm(data);
     }

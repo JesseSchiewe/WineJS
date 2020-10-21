@@ -2,6 +2,9 @@ import React, {useState, useCallback} from 'react';
 import { useForm } from 'react-hook-form';
 import outputForm from './OutputForm';
 import useToggle from './useToggle';
+import {Redirect} from 'react-router-dom';
+import './index.js';
+//import {Routes} from './Routes';
 
 export default function App() {
   const { register, handleSubmit, errors } = useForm();
@@ -19,11 +22,18 @@ export default function App() {
 
   const [isOn, toggleIsOn] = useToggle();
 
+  //const [valueALL, setValueALL] = useState();
+  let valueAll = ""
+  let sampleData = ""
+
   const [hideNoseNotes, toggleNoseNotes] = useToggle();
   const [hideIntenseNotes, toggleIntenseNotes] = useToggle();
   const [hideCharNotes, toggleCharNotes] = useToggle();
   const [hideBalNotes, toggleBalNotes] = useToggle();
   const [hideLenNotes, toggleLenNotes] = useToggle();
+
+
+  const [toResults, setToResults] = useState(false);
 
   /* const useToggle = (initialState) => {
     const [hideNoseIntensity, sethideNoseIntensity] = useState(true);
@@ -46,10 +56,14 @@ export default function App() {
 
   function onSubmit(data) {
     alert("Successfully submitted form");
-    alert(data.form)
-    alert("Wine:" + data.WineName + " Nose Intensity:" + data.NoseIntensity);
+    //alert(data.form)
+    //alert("Wine:" + data.WineName + " Nose Intensity:" + data.NoseIntensity);
+    let sampleData = data;
+    alert(sampleData.Balance)
     console.log(data);
-    outputForm(data);
+    //{e => outputForm(data)};
+
+    setToResults(true);
   }
 
   function updateTextInput(val,changeID) {
@@ -63,6 +77,11 @@ export default function App() {
       <div className="WineJS Wine Review">
         <h1>WineJS Review</h1>
       </div>
+
+      {/* {toResults ? <Redirect to="/reviewresult" /> : null} */}
+      {toResults ? <Redirect to={{ pathname:"/outputform", state: { data: sampleData }}} /> : null}
+          
+
 
       <h2>Producer</h2>
       <input type="text" placeholder="Producer" name="Producer" ref={register} />

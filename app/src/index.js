@@ -1,6 +1,6 @@
 import React, {Fragment} from 'react';
 import ReactDOM from 'react-dom';
-import { BrowserRouter as Router, Link, Route } from "react-router-dom"
+import { BrowserRouter as Router, Link, Redirect, Route } from "react-router-dom"
 //import './Slider.css';
 import './App.css';
 import App from './App';
@@ -10,10 +10,11 @@ import './OutputForm.js';
 import {Home} from './Home.js';
 import {About} from './About.js';
 import {Contact} from './Contact.js';
+import {ReviewResult} from './ReviewResult.js';
 // import './routes.js';
 // import Main from "./Main";
 // import Main2 from "./Main2"
-// import OutputForm from "./OutputForm";
+import outputForm from "./OutputForm";
 //
 
 
@@ -69,6 +70,8 @@ ReactDOM.render(
       <li><Link to="/contact">Contact</Link></li>
       <li><Link to="/app">App</Link></li>
       <li><Link to="/review">Review</Link></li>
+      <li><Link to="/reviewresult">Review Result</Link></li>
+      <li><Link to="/outputform">Output Form</Link></li>
     </ul>
 
     <Route path="/" exact component={Home} />
@@ -76,6 +79,8 @@ ReactDOM.render(
     <Route path="/contact" component={Contact} />
     <Route path="/app"  component={App} />
     <Route path="/review"  component={App} />
+    <Route path="/reviewresult"  component={ReviewResult} />
+    <Route path="/outputform"  component={outputForm} />
     {/* <Route path="/review"  component={Review} /> */}
 
   </Router>,
