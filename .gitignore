@@ -1,2 +1,3 @@
 node_modules
 DockerHub.ps1
+app/src/Config.js

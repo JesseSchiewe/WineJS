@@ -5,6 +5,9 @@ import useToggle from './useToggle';
 import {Redirect} from 'react-router-dom';
 import './index.js';
 //import {Routes} from './Routes';
+import {db} from './Config';
+//import {Firebase} from './Config';
+import firebase from 'firebase';
 
 export default function App() {
   const { register, handleSubmit, errors } = useForm();
@@ -35,6 +38,35 @@ export default function App() {
 
   const [toResults, setToResults] = useState(false);
 
+  var database = firebase.database();
+
+  function writeUserData(userId, name, email, imageUrl) {
+    firebase.database().ref('users/' + userId).set({
+      username: name,
+      email: email,
+      profile_picture : imageUrl
+    });
+  }
+
+  function writeToDatabase(userId, data) {
+    firebase.database().ref('users/' + userId + '/' + data.WineName).set({
+      WineName: data.WineName,
+      Balance: data.Balance,
+      data
+    });
+  }
+
+  function readDatabase() {
+    return firebase.database().ref('/users/').once('value').then(function(snapshot) {
+        var username = (snapshot.val() && snapshot.val().username) || 'Anonymous';
+        // ...
+    });
+  }
+
+  const readAllDatabase = () => {
+    return firebase.database().ref('users/jds007/')
+  };
+
   /* const useToggle = (initialState) => {
     const [hideNoseIntensity, sethideNoseIntensity] = useState(true);
     const toggle = React.useCallback(
@@ -54,16 +86,23 @@ export default function App() {
     return [value, toggle];
   }; */
 
+  
+
+
   function onSubmit(data) {
     alert("Successfully submitted form");
     //alert(data.form)
     //alert("Wine:" + data.WineName + " Nose Intensity:" + data.NoseIntensity);
-    let sampleData = data;
-    alert(sampleData.Balance)
-    console.log(data);
-    //{e => outputForm(data)};
+    //let sampleData = data;
+    //writeUserData("ksdf","Bob","bob@hotmail.com","nourl")
+    writeToDatabase("jds0007",data)
+    //let readdata = readDatabase()
+    //alert(readdata)
+    //alert(readDatabase)
+    //alert(sampleData.Balance)
 
-    setToResults(true);
+    //console.log(data);
+    //setToResults(true);
   }
 
   function updateTextInput(val,changeID) {

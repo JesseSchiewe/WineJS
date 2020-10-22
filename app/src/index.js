@@ -1,4 +1,4 @@
-import React, {Fragment} from 'react';
+import React, {Fragment, useState, useEffect } from 'react';
 import ReactDOM from 'react-dom';
 import { BrowserRouter as Router, Link, Redirect, Route } from "react-router-dom"
 //import './Slider.css';
@@ -15,8 +15,43 @@ import {ReviewResult} from './ReviewResult.js';
 // import Main from "./Main";
 // import Main2 from "./Main2"
 import outputForm from "./OutputForm";
-//
+//import Firebase from './Config';
+//import FirebaseContext from './Firebase';
+import AppAuth from "./AppAuth";
 
+
+import AuthService from "./services/auth.service";
+
+import Login from "./components/Login";
+import Register from "./components/Register";
+import Profile from "./components/Profile";
+import BoardUser from "./components/BoardUser";
+import BoardModerator from "./components/BoardModerator";
+import BoardAdmin from "./components/BoardAdmin";
+
+const AppA = () => {
+  const [showModeratorBoard, setShowModeratorBoard] = useState(false);
+  const [showAdminBoard, setShowAdminBoard] = useState(false);
+  const [currentUser, setCurrentUser] = useState(undefined);
+
+  useEffect(() => {
+    const user = AuthService.getCurrentUser();
+
+    if (user) {
+      setCurrentUser(user);
+      setShowModeratorBoard(user.roles.includes("ROLE_MODERATOR"));
+      setShowAdminBoard(user.roles.includes("ROLE_ADMIN"));
+    }
+  }, []);
+
+  const logOut = () => {
+    AuthService.logout();
+  };
+}
+
+
+//export default { Firebase };
+//export { FirebaseContext};
 
 /* ReactDOM.render(
   <React.StrictMode>
@@ -64,6 +99,7 @@ import outputForm from "./OutputForm";
 
 ReactDOM.render(
   <Router>
+    
     <ul>
       <li><Link to="/">Home</Link></li>
       <li><Link to="/about">About</Link></li>
@@ -72,6 +108,7 @@ ReactDOM.render(
       <li><Link to="/review">Review</Link></li>
       <li><Link to="/reviewresult">Review Result</Link></li>
       <li><Link to="/outputform">Output Form</Link></li>
+      <li><Link to="/appauth">Authentication</Link></li>
     </ul>
 
     <Route path="/" exact component={Home} />
@@ -81,6 +118,14 @@ ReactDOM.render(
     <Route path="/review"  component={App} />
     <Route path="/reviewresult"  component={ReviewResult} />
     <Route path="/outputform"  component={outputForm} />
+    <Route path="/appauth"  component={AppAuth} />
+
+    <Route exact path="/login" component={Login} />
+    <Route exact path="/register" component={Register} />
+    <Route exact path="/profile" component={Profile} />
+    <Route path="/user" component={BoardUser} />
+    <Route path="/mod" component={BoardModerator} />
+    <Route path="/admin" component={BoardAdmin} />
     {/* <Route path="/review"  component={Review} /> */}
 
   </Router>,
