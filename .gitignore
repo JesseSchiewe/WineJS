@@ -1,3 +1,5 @@
 node_modules
 DockerHub.ps1
 app/src/Config.js
+app/src/Firebase.js
+
