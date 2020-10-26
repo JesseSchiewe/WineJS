@@ -7,16 +7,17 @@ import { useForm } from 'react-hook-form';
 //     alert("Clicked submit on outputForm");
 // }
 
-export default function outputForm(sampleData) {
+export default function outputForm(reviewData) {
     return (
         <form>
         <div className="WineJS Wine Review"></div>
             <h1>Interactive Output Form</h1>
-            <h2>Producer: {sampleData.producer} </h2>
-            <h2>Wine Name: {sampleData.WineName} </h2>
-            <h2>VIntage: {sampleData.Vintage} </h2>
-            <h2>Nose Intensity: {sampleData.NoseIntensity} </h2>
-            {/* <h2>{sampleData}</h2> */}
+
+            <h2>Balance: {reviewData.Balance}</h2>
+            <h2>Balance Notes: {reviewData.BalanceNotes}</h2>
+            <h2>FlavorCharacteristics: {reviewData.FlavorCharacteristics}</h2>
+            <h2>WineName: {reviewData.WineName}</h2>
+            <h2>Tasting Notes: {reviewData.TastingNotes}</h2>
         </form>
     );
 }

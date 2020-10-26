@@ -1,7 +1,7 @@
 import React, {useState} from "react";
 //import { Link } from "@reach/router";
 import { Link } from "react-router-dom";
-import {signInWithGoogle} from "../Firebase";
+import { signInWithGoogle } from "../Firebase";
 import { auth, generateUserDocument } from "../Firebase";
 
 const SignIn = () => {
