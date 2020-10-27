@@ -28,6 +28,56 @@ export const ReviewResult = () => {
 
     const [reviewScores, setReviewScores] = useState({})
 
+    // const [ Balance , setBalance ] = useState(snapshot.val().Balance);
+    // const [ BalanceNotes, setBalanceNotes ] = useState(snapshot.val().BalanceNotes);
+    // const [ FlavorCharacteristics, setFlavorCharacteristics ] = useState(snapshot.val().FlavorCharacteristics);
+    // const [ FlavorCharacteristicsNotes, setFlavorCharacteristicsNotes ] = useState(snapshot.val().FlavorCharacteristicsNotes);
+    // const [ FlavorIntensity, setFlavorIntensity ] = useState(snapshot.val().FlavorIntensity);
+    // const [ FlavorIntensityNotes, setFlavorIntensityNotes ] = useState(snapshot.val().FlavorIntensityNotes);
+    // const [ Length, setLength ] = useState(snapshot.val().Length);
+    // const [ LengthNotes, setLengthNotes ] = useState(snapshot.val().LengthNotes);
+    // const [ NoseIntensity, setNoseIntensity ] = useState(snapshot.val().NoseIntensity);
+    // const [ NoseIntensityNotes, setNoseIntensityNotes ] = useState(snapshot.val().NoseIntensityNotes);
+    // const [ Producer, setProducer ] = useState(snapshot.val().Producer);
+    // const [ TastingNotes, setTastingNotes ] = useState(snapshot.val().TastingNotes);
+    // const [ Total, setTotal ] = useState(snapshot.val().Total);
+    // const [ Vintage, setVintage ] = useState(snapshot.val().Vintage);
+    // const [ WineName1, setWineName1 ] = useState(snapshot.val().WineName);
+    
+    const [ Balance , setBalance ] = useState();
+    const [ BalanceNotes, setBalanceNotes ] = useState();
+    const [ FlavorCharacteristics, setFlavorCharacteristics ] = useState();
+    const [ FlavorCharacteristicsNotes, setFlavorCharacteristicsNotes ] = useState();
+    const [ FlavorIntensity, setFlavorIntensity ] = useState();
+    const [ FlavorIntensityNotes, setFlavorIntensityNotes ] = useState();
+    const [ Length, setLength ] = useState();
+    const [ LengthNotes, setLengthNotes ] = useState();
+    const [ NoseIntensity, setNoseIntensity ] = useState();
+    const [ NoseIntensityNotes, setNoseIntensityNotes ] = useState();
+    const [ Producer, setProducer ] = useState();
+    const [ TastingNotes, setTastingNotes ] = useState();
+    const [ Total, setTotal ] = useState();
+    const [ Vintage, setVintage ] = useState();
+    const [ WineName1, setWineName1 ] = useState();
+
+
+
+    // setBalance(snapshot.val().Balance);
+    // setBalanceNotes(snapshot.val().BalanceNotes);
+    // setFlavorCharacteristics(snapshot.val().FlavorCharacteristics);
+    // setFlavorCharacteristicsNotes(snapshot.val().FlavorCharacteristicsNotes);
+    // setFlavorIntensity(snapshot.val().FlavorIntensity);
+    // setFlavorIntensityNotes(snapshot.val().FlavorIntensityNotes);
+    // setLength(snapshot.val().Length);
+    // setLengthNotes(snapshot.val().LengthNotes);
+    // setNoseIntensity(snapshot.val().NoseIntensity);
+    // setNoseIntensityNotes(snapshot.val().NoseIntensityNotes);
+    // setProducer(snapshot.val().Producer);
+    // setTastingNotes(snapshot.val().TastingNotes);
+    // setTotal(snapshot.val().Total);
+    // setVintage(snapshot.val().Vintage);
+    // setWineName1(snapshot.val().WineName);
+
     // function getReview() {firebase.database().ref('/users/jds0007').on('value', function(snapshot) {
     //     console.log(snapshotToArray(snapshot));
     //     var reviewData = snapshotToArray(snapshot);
@@ -118,8 +168,7 @@ export const ReviewResult = () => {
         alert(e);
         dbpathref = '/users/' + user.uid + "/" + wineReviewName + '/data'
         alert(dbpathref)
-        getReviewData()
-        alert(reviewData.WineName)        
+        setReviewData()        
     }
 
 
@@ -312,42 +361,39 @@ export const ReviewResult = () => {
     }, this);
 
 
-    function getReviewData() {
+    function setReviewData() {
         {firebase.database().ref(dbpathref).on('value', (snapshot) => {
             //console.log(snapshot)
-            reviewData.Balance = snapshot.val().Balance;
-            reviewData.BalanceNotes = snapshot.val().BalanceNotes;
-            reviewData.FlavorCharacteristics = snapshot.val().FlavorCharacteristics;
-            reviewData.FlavorCharacteristicsNotes = snapshot.val().FlavorCharacteristicsNotes;
-            reviewData.FlavorIntensity = snapshot.val().FlavorIntensity;
-            reviewData.FlavorIntensityNotes = snapshot.val().FlavorIntensityNotes;
-            reviewData.Length = snapshot.val().Length;
-            reviewData.LengthNotes = snapshot.val().LengthNotes;
-            reviewData.NoseIntensity = snapshot.val().NoseIntensity;
-            reviewData.NoseIntensityNotes = snapshot.val().NoseIntensityNotes;
-            reviewData.Producer = snapshot.val().Producer;
-            reviewData.TastingNotes = snapshot.val().TastingNotes;
-            reviewData.NoseIntensityNotes = snapshot.val().NoseIntensityNotes;
-            reviewData.Producer = snapshot.val().Producer;
-            reviewData.TastingNotes = snapshot.val().TastingNotes;
-            reviewData.Total = snapshot.val().Total;
-            reviewData.Vintage = snapshot.val().Vintage;
-            reviewData.WineName = snapshot.val().WineName;
+            setBalance(snapshot.val().Balance);
+            setBalanceNotes(snapshot.val().BalanceNotes);
+            setFlavorCharacteristics(snapshot.val().FlavorCharacteristics);
+            setFlavorCharacteristicsNotes(snapshot.val().FlavorCharacteristicsNotes);
+            setFlavorIntensity(snapshot.val().FlavorIntensity);
+            setFlavorIntensityNotes(snapshot.val().FlavorIntensityNotes);
+            setLength(snapshot.val().Length);
+            setLengthNotes(snapshot.val().LengthNotes);
+            setNoseIntensity(snapshot.val().NoseIntensity);
+            setNoseIntensityNotes(snapshot.val().NoseIntensityNotes);
+            setProducer(snapshot.val().Producer);
+            setTastingNotes(snapshot.val().TastingNotes);
+            setTotal(snapshot.val().Total);
+            setVintage(snapshot.val().Vintage);
+            setWineName1(snapshot.val().WineName);
         })};
         alert("getting review data")
     }
     
-    function showScores() {
-        return(
-            <div>
-                <h2>Balance: {reviewData.Balance}</h2>
-                <h2>Balance Notes: {reviewData.BalanceNotes}</h2>
-                <h2>Flavor Characteristics: {reviewData.FlavorCharacteristics}</h2>
-                <h2>Wine Name: {reviewData.WineName}</h2>
-                <h2>Tasting Notes: {reviewData.TastingNotes}</h2>
-            </div>
-        );
-    }
+    // function showScores() {
+    //     return(
+    //         <div>
+    //             <h2>Balance: {Balance}</h2>
+    //             <h2>Balance Notes: {BalanceNotes}</h2>
+    //             <h2>Flavor Characteristics: {FlavorCharacteristics}</h2>
+    //             <h2>Wine Name: {WineName1}</h2>
+    //             <h2>Tasting Notes: {TastingNotes}</h2>
+    //         </div>
+    //     );
+    // }
     
     
 
@@ -406,9 +452,7 @@ export const ReviewResult = () => {
     function SetShowResultsArray() {
         var returnResArr= [];       
             firebase.database().ref(dbpathref).on('value', (snapshot) => {
-
                 //returnResArr = snapshotToArray(snapshot);
-
                 snapshot.forEach(function (childSnapshot) {
                     returnResArr = snapshotToArray(snapshot);
                     //returnResArr.push({ label:childSnapshot.key, value:childSnapshot.key});  
@@ -420,150 +464,43 @@ export const ReviewResult = () => {
         return returnResArr
         console.log(test2)
     }
-
-    function updateReviewScores() {
-        firebase.database().ref(dbpathref).on('value', (snapshot) => {
-            //console.log(snapshot)
-            setReviewScores(snapshot.val().Balance);
-            //setReviewScores(snapshot.val().BalanceNotes);
-            // setReviewScores(snapshot.val().FlavorCharacteristics);
-            // setReviewScores(snapshot.val().FlavorCharacteristicsNotes);
-            // // reviewData.FlavorIntensity = snapshot.val().FlavorIntensity;
-            // // reviewData.FlavorIntensityNotes = snapshot.val().FlavorIntensityNotes;
-            // // reviewData.Length = snapshot.val().Length;
-            // // reviewData.LengthNotes = snapshot.val().LengthNotes;
-            // // reviewData.NoseIntensity = snapshot.val().NoseIntensity;
-            // // reviewData.NoseIntensityNotes = snapshot.val().NoseIntensityNotes;
-            // // reviewData.Producer = snapshot.val().Producer;
-            // // reviewData.TastingNotes = snapshot.val().TastingNotes;
-            // // reviewData.NoseIntensityNotes = snapshot.val().NoseIntensityNotes;
-            // // reviewData.Producer = snapshot.val().Producer;
-            // setReviewScores(snapshot.val().TastingNotes);
-            // // reviewData.Total = snapshot.val().Total;
-            // // reviewData.Vintage = snapshot.val().Vintage;
-            // setReviewScores(snapshot.val().WineName);
-    })};
-    
     
     return(
         <Fragment>
             <div>
+                <div>
+                    <h1>View Past Reviews</h1>
+                </div>
                 <form>
                     <Select options={ test } onChange={e => handleChange(e.value)} />
-
-
-                    {showScores(reviewData)}
-
+                    {/* {showScores(reviewData)} */}
                 </form>
-
-                
-
-                {/* <h2>{SetWineArray()}</h2> */}
-                
-                
-
-                <h1>Wine Review</h1>
-                <h2>Date: </h2>
-
-                {/* {firebase.database().ref('/users/jds0007').on('value', function(snapshot) {
-                    console.log(snapshotToArray(snapshot));
-                })}; */}                
-
-                {/* {firebase.database().ref('/users/jds0007').on('value', function(snapshot) {
-                    //console.log(snapshotToArray(snapshot));
-                })}; */}
-
-                {/* {firebase.database().ref('/users/CGVMdF4jxZclFvfekG7y65SO6272').on('value', function(snapshot) {
-                    //console.log(snapshotToArray(snapshot));
-                })}; */}
-
-                {/* {firebase.database().ref('/users/jds0007/Wine1').on('value', (snapshot) => {
-                        reviewData.Balance = snapshot.val().Balance;
-                        reviewData.WineName = snapshot.val().WineName;
-                })}; */}
-                
-                {/* {firebase.database().ref(dbpathref).on('value', (snapshot) => {
-                        console.log(snapshot)
-                        reviewData.Balance = snapshot.val().Balance;
-                        reviewData.WineName = snapshot.val().WineName;
-                })}; */}
-                                
-                {/* {firebase.database().ref('/users/CGVMdF4jxZclFvfekG7y65SO6272/Wine6').on('value', (Snapshot) => {
-                        console.log(Snapshot)
-                        reviewData.Balance = Snapshot.val().Balance;
-                        reviewData.WineName = Snapshot.val().WineName;
-                })}; */}
-
-                {/* {firebase.database().ref('/users/CGVMdF4jxZclFvfekG7y65SO6272/Wine4').on('value', (snapshot) => {
-                    console.log(snapshot)
-                    reviewData.Balance = snapshot.val().Balance;
-                    reviewData.WineName = snapshot.val().WineName;
-                })}; */}
-
-                {/* {firebase.database().ref(dbpathref).on('value', (snapshot) => {
-                    //console.log(snapshot)
-                    reviewData.Balance = snapshot.val().Balance;
-                    reviewData.BalanceNotes = snapshot.val().BalanceNotes;
-                    reviewData.FlavorCharacteristics = snapshot.val().FlavorCharacteristics;
-                    reviewData.FlavorCharacteristicsNotes = snapshot.val().FlavorCharacteristicsNotes;
-                    reviewData.FlavorIntensity = snapshot.val().FlavorIntensity;
-                    reviewData.FlavorIntensityNotes = snapshot.val().FlavorIntensityNotes;
-                    reviewData.Length = snapshot.val().Length;
-                    reviewData.LengthNotes = snapshot.val().LengthNotes;
-                    reviewData.NoseIntensity = snapshot.val().NoseIntensity;
-                    reviewData.NoseIntensityNotes = snapshot.val().NoseIntensityNotes;
-                    reviewData.Producer = snapshot.val().Producer;
-                    reviewData.TastingNotes = snapshot.val().TastingNotes;
-                    reviewData.NoseIntensityNotes = snapshot.val().NoseIntensityNotes;
-                    reviewData.Producer = snapshot.val().Producer;
-                    reviewData.TastingNotes = snapshot.val().TastingNotes;
-                    reviewData.Total = snapshot.val().Total;
-                    reviewData.Vintage = snapshot.val().Vintage;
-                    reviewData.WineName = snapshot.val().WineName;
-                })}; */}
-                
-                
-                {/* <h2>Balance: {reviewData.Balance}</h2>
-                <h2>Balance Notes: {reviewData.BalanceNotes}</h2>
-                <h2>Flavor Characteristics: {reviewData.FlavorCharacteristics}</h2>
-                <h2>Wine Name: {reviewData.WineName}</h2>
-                <h2>Tasting Notes: {reviewData.TastingNotes}</h2> */}
-
-                {/* {updateReviewScores()} */}
-
-                
-                <h2>Balance: {reviewData.Balance}</h2>
-                <h2>Balance Notes: {reviewData.BalanceNotes}</h2>
-                <h2>Flavor Characteristics: {reviewData.FlavorCharacteristics}</h2>
-                <h2>Wine Name: {reviewData.WineName}</h2>
-                <h2>Tasting Notes: {reviewData.TastingNotes}</h2>
-
-
-                {/* {firebase.database().ref(dbpathref).on('value', (snapshot) => {
-                    //console.log(snapshot)
-                    var reviewData2 = snapshot;
-                    console.log(reviewData2);
-                })}; */}
-
-
-      
-
-
-
-                {/* {firebase.database().ref(dbWineNames).on('value', (snapshot) => {
-                    foreach => {}
-                    console.log(snapshot.child)
-
-                    // //const {wines} = useState();
-                    // let wineList = snapshot.keys().map((k) => {
-                    //     return ( 
-                    //         <option key={k} value={k}>{wines[k]}</option>
-                    //     )
-                    // })
-                })}; */}
-                
+                <div>
+                    <reviewresults>
+                        <h1>Wine Name: {WineName1}</h1>
+                        <h2>Producer: {Producer}</h2>
+                        <h2>Vintage: {Vintage}</h2>
+                        <h2>Total: {Total}</h2>
+                        <h2>TastingNotes:</h2>
+                        {TastingNotes}
+                        <h2>Nose Intensity: {NoseIntensity}</h2>
+                        <h2>Nose Intensity Notes:</h2>
+                        {NoseIntensityNotes}
+                        <h2>Flavor Intensity: {FlavorIntensity}</h2>
+                        <h2>Flavor Intensity Notes:</h2>
+                        {FlavorIntensityNotes}
+                        <h2>FlavorCharacteristics: {FlavorCharacteristics}</h2>
+                        <h2>FlavorCharacteristicsNotes:</h2>
+                        {FlavorCharacteristicsNotes}
+                        <h2>Balance: {Balance}</h2>
+                        <h2>Balance Notes:</h2>
+                        {BalanceNotes}
+                        <h2>Length: {Length}</h2>
+                        <h2>Length Notes:</h2>
+                        {LengthNotes}
+                    </reviewresults>
+                </div>               
             </div>
         </Fragment>
-
     )
 };

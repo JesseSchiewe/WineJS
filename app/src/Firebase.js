@@ -21,7 +21,9 @@ export const firestore = firebase.firestore();
 const provider = new firebase.auth.GoogleAuthProvider();
 
 export const signInWithGoogle = () => {
-    auth.signInWithPopup(provider);
+    //auth.signInWithPopup(provider);
+    auth.signInWithRedirect(provider);
+    //auth.signInWithCredential(provider);
 };
 
 export const generateUserDocument = async (user, additionalData) => {

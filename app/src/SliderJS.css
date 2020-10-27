@@ -85,6 +85,48 @@ body {
 
     }
 
+    button[type="menubutton"] {
+        color:rebeccapurple;
+        background: none;
+        font-family: sans-serif;
+        font-size: 50%;
+        margin: .5em;
+        margin-top: 0em;
+        padding: 1px;
+        text-transform: uppercase;
+        border-width: .2em;
+        border-color: rebeccapurple;
+    }
+
+    button[type="signoutbutton"] {
+        color:rebeccapurple;
+        background-color: goldenrod;
+        font-family: sans-serif;
+        font-size: 80%;
+        margin: .5em;
+        margin-top: 0em;
+        padding: 1px;
+        text-transform: uppercase;
+        border: 2px solid rebeccapurple;
+        border-color: rebeccapurple;
+    }
+
+    .SiteHeader {
+        text-align: right;
+        vertical-align: top;
+        padding: 0em;
+        margin: 0em;
+    }
+
+    form {
+        background: none;
+        /* background-image: url(zalto.jpg); */
+        /* background-position: center; */
+        max-width: 400px;
+        margin: 0 auto;
+      }
+
+
     textarea {
         font-weight: 400;
         background: whitesmoke;
@@ -97,3 +139,55 @@ body {
         box-sizing: border-box;
         font-size: 14px;
     }
+
+    h1 {
+        font-weight: 100;
+        color: #000066;
+        margin-top: 0px;
+        font-size: 3em;
+        text-align: center;
+        padding-bottom: 10px;
+        border-bottom: 1px solid rgb(79, 98, 148);
+      }
+      h2 {
+        color:black;
+        margin: 10px auto;
+        font-weight: 200;
+        margin-left: 5%;
+      }
+      
+      h3 {
+        color:black;
+        margin: 10px auto;
+        padding: 2%;
+        font-weight: 200;
+        margin-left: 5%;
+        margin-right: 5%;
+        border-top: 2px dashed silver;
+      }
+      
+      h4 {
+        color:black;
+        border-top: 2px dashed silver;
+        margin: 10px auto;
+        padding: 2%;
+        font-weight: 200;
+        margin-left: 5%;
+        margin-right: 5%;
+        margin-bottom: -5%;
+        font-weight: bold;
+        font-size: 3em;
+      }
+
+    h6 {
+        color:black;
+        margin: 10px auto;
+        padding: 2%;
+        font-weight: 200;
+        margin-left: 5%;
+        margin-right: 5%;
+        margin-bottom: -5%;
+        font-weight: bold;
+        font-size: 3em;
+        justify-self: right;
+      }
