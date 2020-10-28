@@ -64,7 +64,7 @@ export default function Review() {
 
   function onSubmit(data) {
     alert("Successfully submitted form");
-    writeToDatabase(user.uid,data);
+    writeToDatabase(user.uid,data);    
   }
 
   function updateTextInput(val,changeID) {

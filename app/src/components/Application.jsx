@@ -29,12 +29,6 @@ function Application() {
     user ?
       <Router>
         {/* <Switch> */}
-          <Route path= "/signin" exact component={SignIn} />
-          <Route path= "/signUp" exact component={SignUp} />
-          <Route path= "/passwordreset" exact component={PasswordReset} />
-          <Route path= "/profilepage" exact component={ProfilePage} />
-
-
           <Route path="/" component={PageHeader} />
           <Route path="/" exact component={Home} />
           <Route path="/home" exact component={Home} />
@@ -42,22 +36,24 @@ function Application() {
           <Route path="/contact" exact component={Contact} />
           <Route path="/review" exact component={Review} />
           <Route path="/reviewresult" exact component={ReviewResult} />
-
+          <Route path= "/signin" exact component={SignIn} />
+          <Route path= "/signUp" exact component={SignUp} />
+          <Route path= "/passwordreset" exact component={PasswordReset} />
+          <Route path= "/profilepage" exact component={ProfilePage} />    
           {/* <Route path="*" component={NotFoundPage} /> */}
         {/* </Switch>      */}
       </Router>
     :
       <Router>
-        <Switch>
+          <Route path="/" component={PageHeader} />
           <Route path="/" exact component={SignIn} />
+          <Route path="/home" exact component={Home} />
+          <Route path="/about" exact component={About} />
+          <Route path="/contact" exact component={Contact} />
           <Route path= "/signin" exact component={SignIn} />
           <Route path= "/signUp" exact component={SignUp} />
           <Route path= "/passwordreset" exact component={PasswordReset} />
-
-          <Route path="*" component={NotFoundPage} />
-        </Switch>   
       </Router>
-
   );
 }
 

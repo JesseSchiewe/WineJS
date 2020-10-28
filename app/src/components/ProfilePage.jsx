@@ -19,11 +19,12 @@ const ProfilePage = () => {
           className="border border-blue-300"
         ></div>
         <div className = "md:pl-4">
-        <h2 className = "text-2xl font -semibold">{displayName}</h2>
+        <h2>{displayName}</h2>
         <h3 className = "italic">{email}</h3>
         </div>
       </div>
       <button className = "w-full py-3 bg-red-600 mt-4 text-white" onClick = {() => {auth.signOut()}}>Sign out</button>
+      <a class="bn39" href="/"><span class="bn39span" onClick = {() => {auth.signOut()}}>Sign Out</span></a>
     </div>
   ) 
 };

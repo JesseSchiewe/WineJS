@@ -73,9 +73,9 @@ html, body {
 
 button {
     background: none;
-    padding: 20px 48px;
-    color: #c89253;
-    border: 1px solid #c89253;
+    padding: 10px 38px;
+    color: purple;
+    border: 1px solid purple;
     text-transform: uppercase;
     letter-spacing: 4px;
 }
@@ -133,6 +133,86 @@ button:hover {
     z-index: 2;
 }
 
+input[type='text'] {
+    font-weight: 400;
+    background: white;
+    opacity: 70%;
+    color: black;
+    border-color: grey;
+    padding: 10px 15px;
+    border-radius: 4px;
+    margin-left: 10%;
+    margin-right: 5%;
+    width: 80%;
+    height: 40px;
+    box-sizing: border-box;
+    font-size: 14px;
+  }
+
+input[type='text-center'] {
+    font-weight: 400;
+    background: white;
+    opacity: 90%;
+    color: black;
+    border-color: grey;
+    padding: 10px 15px;
+    border-radius: 4px;
+    margin-left: 10%;
+    margin-right: 5%;
+    width: 80%;
+    height: 40px;
+    box-sizing: border-box;
+    font-size: 14px;
+    text-align: right;
+    vertical-align: top;
+}
+.signin-text {
+    font-weight: 400;
+    color: black;
+    border-color: grey;
+    padding: 10px 15px;
+    border-radius: 4px;
+    margin-left: 30%;
+    margin-right: 5%;
+    width: 80%;
+    height: 40px;
+    box-sizing: border-box;
+    font-size: 14px;
+    text-align: left;
+    vertical-align: top;
+}
+
+
+input[type="number"] {
+    font-weight: 400;
+    background: white;
+    opacity: 70%;
+    color: black;
+    border-color: grey;
+    padding: 10px 15px;
+    border-radius: 4px;
+    margin-left: 10%;
+    margin-right: 5%;
+    width: 40%;
+    height: 40px;
+    box-sizing: border-box;
+    font-size: 14px;
+}
+
+textarea {
+    font-weight: 400;
+    background: white;
+    opacity: 80%;
+    color: black;
+    border-color: grey;
+    padding: 10px 15px;
+    border-radius: 4px;
+    width: 100%;
+    height: 250px;
+    box-sizing: border-box;
+    font-size: 14px;
+  }
+
 .txt {
     position: absolute;
     top: 104%;
@@ -189,6 +269,34 @@ h1 {
     color: #e7ad68;
     transition: 0.3s;
 }
+
+.bn39 {
+    background-image: linear-gradient(135deg, darkred, purple);
+    border-radius: 6px;
+    box-sizing: border-box;
+    color: #ffffff;
+    float: right;
+    height: 5%;
+    font-size: 100%;
+    font-weight: 600;
+    padding: 4px;
+    position: relative;
+    text-decoration: none;
+    width: 5em;
+    z-index: 2;
+  }
+  
+  .bn39 .bn39span {
+    align-items: center;
+    background: purple;
+    border-radius: 6px;
+    display: flex;
+    justify-content: center;
+    height: 100%;
+    transition: background 0.5s ease;
+    width: 100%;
+  }
+
 
 @media(max-width: 768px) {
     .title {

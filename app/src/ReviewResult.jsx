@@ -14,14 +14,7 @@ import UserProvider, { UserContext } from "./providers/UserProvider";
 // var wineRef = firebase.database().ref("/users");
 // const [snapshots, loading, error] = useList(wineRef );
 
-
-
 export const ReviewResult = () => {
-    //const [review, setReview] = useState(firebase.database().ref('users/jds007/').readAllDatabase);
-    //const [review, setReview] = useState(firebase.database().ref("users/jds007/sfd/").on("value",snapshot));
-    //const [review, setReview] = useState(firebase.database().ref("/users/jds007/sfd/"));
-
-    //const [valueBAL, setValueBAL] = useState(0);
     const reviewData = {};
     const user = useContext(UserContext);
     const {displayName, email} = user;
@@ -172,154 +165,8 @@ export const ReviewResult = () => {
     }
 
 
-    // function SetWineArray() {
-    //     var returnArr = [];
-    //     useEffect(()=>{
-    //         query.once("value").then(function (snapshot) {
-    //             snapshot.forEach(function (childSnapshot) {
-    //                 var key = childSnapshot.key;
-    //                 var childData = childSnapshot.val();
-    //                 //console.log(key);
-    //                 //setWinesList(winesList => [...winesList, childSnapshot.key]);
-    //                 returnArr.push(key);
-    //                 //console.log(key)
-    //             });                
-    //         });
-    //         //console.log(returnArr)
-    //         //test = returnarr
-    //     }, [query])
-    //     console.log(returnArr)
-    // }
-
-
-    // function SetWineArray() {
-    //     var returnArr = [];
-    //     //useEffect(()=>{
-    //         query.once("value").then(function (snapshot) {
-    //             snapshot.forEach(function (childSnapshot) {
-    //                 var item = childSnapshot.key;
-    //                 //var childData = childSnapshot.val();
-    //                 //console.log(key);
-    //                 //setWinesList(winesList => [...winesList, childSnapshot.key]);
-    //                 returnArr.push(item);
-    //                 //console.log(key)
-    //             });                
-    //         });
-    //         //console.log(returnArr)
-    //         //test = returnarr
-    //     //}, [query])
-    //     console.log(returnArr)
-
-    //     test = returnArr
-
-    //     return returnArr
-    // }
-
-
     const [theArray, setTheArray] = useState([]);
     const addArrayItem = (newArrayItem) => setTheArray(state => [...state, newArrayItem]);
-
-    // function SetWineArray() {
-    //     var returnArr = [];
-    //     //useEffect(()=>{
-    //         query.once("value").then(function (snapshot) {
-    //             snapshot.forEach(function (childSnapshot) {
-    //                 var key = childSnapshot.key;
-    //                 //var childData = childSnapshot.val();
-    //                 //console.log(key);
-    //                 //setWinesList(winesList => [...winesList, childSnapshot.key]);
-    //                 returnArr.push(key);
-
-    //                 //setTheArray(theArray.concat(key));
-
-    //                 //addArrayItem(item);
-    //                 //setTheArray([...theArray, key]);
-                    
-    //                 console.log(key)
-    //             });                
-    //         });
-    //         //console.log(returnArr)
-    //         //test = returnarr
-    //     //}, [query])
-    //     console.log(returnArr)
-    //     //console.log(theArray)
-
-    //     test = returnArr
-
-    //     return returnArr
-    // }
-
-    // SetWineArray()
-
-    // function SetWineArray() {
-    //     //useEffect(() => {
-    //         var returnArr = [];
-    //         //useEffect(()=>{
-    //             query.once("value").then(function (snapshot) {
-    //                 snapshot.forEach(function (childSnapshot) {
-    //                     var item = childSnapshot.key;
-    //                     item.key = childSnapshot.key;
-
-    //                     //var key = childSnapshot.key;
-    //                     //var childData = childSnapshot.val();
-    //                     //console.log(key);
-    //                     //setWinesList(winesList => [...winesList, childSnapshot.key]);
-    //                     returnArr.push(item);
-        
-    //                     //setTheArray(theArray.concat(key));
-        
-    //                     //addArrayItem(item);
-    //                     //setTheArray([...theArray, key]);
-                        
-    //                     console.log(item)
-    //                 });                
-    //             });
-    //             //console.log(returnArr)
-    //             //test = returnarr
-    //         //}, [query])
-    //         //console.log(returnArr)
-    //         //console.log(theArray)
-        
-    //         test = returnArr
-        
-    //         return returnArr
-    //     //}, []);
-    // }
-
-    // function SetWineArray() {
-    //     useEffect(() => {
-    //         var returnArr = [];
-    //         //useEffect(()=>{
-    //             query.once("value").then(function (snapshot) {
-    //                 snapshot.forEach(function (childSnapshot) {
-    //                     var item = childSnapshot.val();
-    //                     item.key = childSnapshot.key;
-
-    //                     //var key = childSnapshot.key;
-    //                     //var childData = childSnapshot.val();
-    //                     //console.log(key);
-    //                     //setWinesList(winesList => [...winesList, childSnapshot.key]);
-    //                     returnArr.push(item);
-        
-    //                     //setTheArray(theArray.concat(key));
-        
-    //                     //addArrayItem(item);
-    //                     //setTheArray([...theArray, key]);
-                        
-    //                     console.log(item)
-    //                 });                
-    //             });
-    //             //console.log(returnArr)
-    //             //test = returnarr
-    //         //}, [query])
-    //         //console.log(returnArr)
-    //         //console.log(theArray)
-        
-    //         test = returnArr
-        
-    //         return returnArr
-    //     }, []);
-    // }
 
     function SetWineArray() {
         var returnArr = [];
@@ -472,7 +319,7 @@ export const ReviewResult = () => {
                     <h1>View Past Reviews</h1>
                 </div>
                 <form>
-                    <Select options={ test } onChange={e => handleChange(e.value)} />
+                    <Select options={ test } isSearchable={true} onChange={e => handleChange(e.value)} />
                     {/* {showScores(reviewData)} */}
                 </form>
                 <div>
