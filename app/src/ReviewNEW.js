@@ -9,7 +9,9 @@ import './index.js';
 //import firebase from 'firebase';
 import UserProvider, { UserContext } from "./providers/UserProvider";
 //import firestore from './Firebase'
-import firebase from "firebase/app";
+//import firebase from "firebase/app";
+import { firestore }from "./Firebase";
+//import "firebase/firestore";
 
 export default function Review() {
   const { register, handleSubmit, errors } = useForm();
@@ -38,7 +40,9 @@ export default function Review() {
   const [hideLenNotes, toggleLenNotes] = useToggle();
 
   const [toResults, setToResults] = useState(false);
-  var database = firebase.database();
+  //var database = firebase.database();
+  //var dbpathref = '/users/' + user.uid + "/" + wineReviewName + '/data'
+  //var firebasedb = firestore.ref('/users/' + user.uid)
 
 //   function writeToDatabase(userId, data) {
 //     firebase.database().ref('users/' + userId + '/' + data.WineName).set({
@@ -46,26 +50,21 @@ export default function Review() {
 //     });
 //   }
 
+  // function writeToDatabase(userId, data) {
+  //   firebase.database().ref('users/' + userId + '/' + data.WineName).set({
+  //     data    
+  //   });
+  // }
+
   function writeToDatabase(userId, data) {
-    firebase.database().ref('users/' + userId + '/' + data.WineName).set({
+    firestore.collection('reviews').collection('userID').collection('data.WineName').set({
       data    
     });
   }
 
-  function readDatabase() {
-    return firebase.database().ref('/users/').once('value').then(function(snapshot) {
-        var username = (snapshot.val() && snapshot.val().username) || 'Anonymous';
-    });
-  }
-
-  const readAllDatabase = () => {
-    return firebase.database().ref('users/jds007/')
-  };
-
   function onSubmit(data) {
     alert("Successfully submitted form");
-    writeToDatabase(user.uid,data);
-    setToResults(true)
+    writeToDatabase(user.uid,data);    
   }
 
   function updateTextInput(val,changeID) {
@@ -87,7 +86,7 @@ export default function Review() {
 
         {console.log(user.uid)}
 
-        {toResults ? <Redirect to={{ pathname:"/reviewresult", state: { data: sampleData }}} /> : null}
+        {toResults ? <Redirect to={{ pathname:"/outputform", state: { data: sampleData }}} /> : null}
             
         <h2>Producer</h2>
         <input type="text" placeholder="Producer" name="Producer" ref={register} />

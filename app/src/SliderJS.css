@@ -1,8 +1,8 @@
 body {
     font-family: "Dosis", Helvetica, Arial, sans-serif; 
-    color: #34495e;
-    padding-top: 40px;
-    text-shadow: white 1px 1px 1px;
+    color:#000066;
+    padding-top: 0px;
+    /* text-shadow: white 1px 1px 1px; */
   }
   .value {
     /* border-bottom: 2px dashed #bdc3c7; */
@@ -78,6 +78,11 @@ body {
         margin-left: 15%;
         padding: 1px;
     }
+    
+    .error {
+      color: crimson;
+      font-size: 1.2em;
+    }
 
     button[type='submit'],
     input[type='submit'] {
@@ -86,10 +91,11 @@ body {
     text-transform: uppercase;
     border: none;
     margin-top: 10px;
-    padding: 20px;
-    font-size: 16px;
+    padding: 15px;
+    font-size: 30px;
+    width: 100%;
     font-weight: 100;
-    letter-spacing: 10px;
+    letter-spacing: 8px;
     }
 
     button[type='submit']:hover,
@@ -113,7 +119,7 @@ body {
         font-size: 60%;
         margin: .5em;
         margin-top: 0em;
-        padding: 1px;
+        padding: 0px;
         text-transform: uppercase;
         border-width: .2em;
         border-color: rebeccapurple;
@@ -128,9 +134,8 @@ body {
         padding: 1px;
         position: top;
         text-decoration: none;
-        width: 10%;
+        width: 7em;
         z-index: 2;
-
     }
 
     button[type="signoutbutton"] {
@@ -145,7 +150,6 @@ body {
         border: 2px solid rebeccapurple;
         border-color: rebeccapurple;
     }
-
     
 
     .SiteHeader {
@@ -153,7 +157,8 @@ body {
         vertical-align: top;
         padding: 0em;
         margin: 0em;
-        margin-right: 5%;
+        margin-right: 2%;
+        margin-top: .5em;
     }
 
     .SiteMenu {
@@ -196,7 +201,8 @@ body {
         font-weight: 100;
         color: #000066;
         margin-top: 0px;
-        font-size: 3em;
+        font-size: 250%;
+        font-family: "Dosis", Helvetica, Arial, sans-serif; 
         text-align: center;
         padding-bottom: 10px;
         border-bottom: 1px solid rgb(79, 98, 148);

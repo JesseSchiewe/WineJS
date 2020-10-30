@@ -23,8 +23,11 @@ const ProfilePage = () => {
         <h3 className = "italic">{email}</h3>
         </div>
       </div>
-      <button className = "w-full py-3 bg-red-600 mt-4 text-white" onClick = {() => {auth.signOut()}}>Sign out</button>
-      <a class="bn39" href="/"><span class="bn39span" onClick = {() => {auth.signOut()}}>Sign Out</span></a>
+
+      <div className="profilepagesignout">
+        <button type="login" onClick = {() => {auth.signOut()}}>Sign out</button>
+        {/* <a class="bn39" href="/"><span class="bn39span" onClick = {() => {auth.signOut()}}>Sign Out</span></a> */}
+      </div>
     </div>
   ) 
 };

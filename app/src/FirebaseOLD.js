@@ -1,6 +1,4 @@
 //import React from 'react';
-import React from 'react';
-import ReactDOM from 'react-dom';
 import firebase from "firebase/app";
 import "firebase/auth";
 import "firebase/firestore";
@@ -27,7 +25,6 @@ export const signInWithGoogle = () => {
     auth.signInWithRedirect(provider);
     //auth.signInWithCredential(provider);
 };
-
 
 export const generateUserDocument = async (user, additionalData) => {
     if (!user) return;

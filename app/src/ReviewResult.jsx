@@ -316,7 +316,7 @@ export const ReviewResult = () => {
         <Fragment>
             <div>
                 <div>
-                    <h1>View Past Reviews</h1>
+                    <h1>Results</h1>
                 </div>
                 <form>
                     <Select options={ test } isSearchable={true} onChange={e => handleChange(e.value)} />

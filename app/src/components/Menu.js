@@ -21,7 +21,7 @@ const Menu = ({ open, ...props }) => {
         <span aria-hidden="true">&#129351;</span>
         Results
         </a>
-      <a href="/profile" tabIndex={tabIndex}>
+      <a href="/profilepage" tabIndex={tabIndex}>
         <span aria-hidden="true">💁🏻‍♂️</span>
         Profile
         </a>  
