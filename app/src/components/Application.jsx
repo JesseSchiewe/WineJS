@@ -1,27 +1,21 @@
 import React, {useContext} from "react";
-//import { Router } from "@reach/router";
-import { BrowserRouter as Router, Link, Redirect, Route, Switch } from "react-router-dom";
+import { BrowserRouter as Router, Route } from "react-router-dom";
 import SignIn from "./SignIn";
 import SignUp from "./SignUp";
-import UserProvider from "../providers/UserProvider";
 import ProfilePage from "./ProfilePage";
 import { UserContext } from '../providers/UserProvider';
 import PasswordReset from "./PasswordReset";
-
-//import '../App.css';
-import '../Style/WineShop.css';
-import '../SliderJS.css';
-
+import '../Style/App.css';
 import '../useToggle';
-import '../OutputForm';
-import {About} from '../About.js';
-import {Contact} from '../Contact.js';
-import {ReviewResult} from '../ReviewResult';
-//import outputForm from "../OutputForm";
-import Review from "../Review";
+import {About} from '../About';
+import {Contact} from '../Contact';
+//import {ReviewResult} from '../ReviewResult';
+import {Review} from "../Review";
 import Home from '../Home';
-import NotFoundPage from "./NotFoundPage";
 import PageHeader from './PageHeader';
+
+export const Version = process.env.REACT_APP_VERSION;
+export const ManualVersion = "1.2.2";
 
 function Application() {
   const user = useContext(UserContext);
@@ -35,7 +29,7 @@ function Application() {
           <Route path="/about" exact component={About} />
           <Route path="/contact" exact component={Contact} />
           <Route path="/review" exact component={Review} />
-          <Route path="/reviewresult" exact component={ReviewResult} />
+          <Route path="/reviewresult" exact component={Review} />
           <Route path= "/signin" exact component={SignIn} />
           <Route path= "/signUp" exact component={SignUp} />
           <Route path= "/passwordreset" exact component={PasswordReset} />
@@ -57,24 +51,4 @@ function Application() {
   );
 }
 
-// function Application() {
-//     const user = useContext(UserContext);
-//     return (
-//         user ?
-//         <ProfilePage />
-//       :
-//         <Router>
-//           <Route path= "/signin" component={SignIn} />
-//           <Route path= "/signUp" component={SignUp} />
-//           <Route path= "/passwordreset" component={PasswordReset} />
-//           <Route path= "/profilepage" component={ProfilePage} />
-
-//           <Route path="/" exact component={SignIn} />
-//           <Route path="/about" component={About} />
-//           <Route path="/contact" component={Contact} />
-//           <Route path="/reviewresult"  component={ReviewResult} />          
-//         </Router>
-
-//   );
-// }
 export default Application;

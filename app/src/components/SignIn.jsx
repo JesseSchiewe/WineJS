@@ -1,33 +1,39 @@
 import React, {useState} from "react";
-import ReactDOM from 'react-dom';
+//import ReactDOM from 'react-dom';
 //import { Link } from "@reach/router";
 import { Link } from "react-router-dom";
-import { signInWithGoogle } from "../Firebase";
-import { auth, generateUserDocument } from "../Firebase";
+//import { signInWithGoogle } from "../Firebase";
+import { auth } from "../Firebase";
+import { Redirect } from 'react-router-dom';
+
+
 
 const SignIn = () => {
-    const [email, setEmail] = useState('');
-    const [password, setPassword] = useState('');
-    const [error, setError] = useState(null);
-    
-    const signInWithEmailAndPasswordHandler = (event, email, password) => {
-        event.preventDefault();
-        auth.signInWithEmailAndPassword(email, password).catch(error => {
-          setError("Error signing in with password and email!");
-          console.error("Error signing in with password and email", error);
-        });
-    };
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const [error, setError] = useState(null);
+  
+  const signInWithEmailAndPasswordHandler = (event, email, password) => {
+      event.preventDefault();
+      auth.signInWithEmailAndPassword(email, password).catch(error => {
+        setError("Error signing in with password and email!");
+        console.error("Error signing in with password and email", error);
+      });
+      setToHome(true);
+  };
 
-      const onChangeHandler = (event) => {
-          const {name, value} = event.currentTarget;
+  const onChangeHandler = (event) => {
+      const {name, value} = event.currentTarget;
 
-          if(name === 'userEmail') {
-              setEmail(value);
-          }
-          else if(name === 'userPassword'){
-            setPassword(value);
-          }
-      };
+      if(name === 'userEmail') {
+          setEmail(value);
+      }
+      else if(name === 'userPassword'){
+        setPassword(value);
+      }
+  };
+  
+  const [toHome, setToHome] = useState(false);
 
   return (
     <div className="mt-8">
@@ -68,19 +74,22 @@ const SignIn = () => {
           <div className="error" >
             {error !== null && <div>{error}</div>}
           </div>
-          <h2>or</h2>
+          {toHome ? <Redirect to={{ pathname:"/" }} /> : null}
+          {/* <h2>
+            or
+          </h2>
           <button className="GoogleSignIn" onClick={signInWithGoogle}>
             Sign in with Google
-          </button>
+          </button> */}
           <p className="text">
-          Don't have an account?{" "}
-          <Link to="signUp" className="text-blue-500 hover:text-blue-600">
-            Sign up here
-          </Link>{" "}
-          <br />{" "}
-          <Link to = "passwordReset" className="text-blue-500 hover:text-blue-600">
-            Forgot Password?
-          </Link>
+            Don't have an account?{" "}
+            <Link to="signUp" className="text-blue-500 hover:text-blue-600">
+              Sign up here
+            </Link>{" "}
+            <br />{" "}
+            <Link to = "passwordReset" className="text-blue-500 hover:text-blue-600">
+              Forgot Password?
+            </Link>
           </p>
         </form>
 

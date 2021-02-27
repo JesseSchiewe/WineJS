@@ -1,8 +1,11 @@
 import React, { useState } from "react";
 //import { Link } from "@reach/router";
 import { Link } from "react-router-dom";
-import {signInWithGoogle} from "../Firebase";
+//import {signInWithGoogle} from "../Firebase";
 import { auth, generateUserDocument } from "../Firebase";
+import { Redirect } from 'react-router-dom';
+
+
 
 const SignUp = () => {
   const [email, setEmail] = useState("");
@@ -14,6 +17,7 @@ const SignUp = () => {
     try{
       const {user} = await auth.createUserWithEmailAndPassword(email, password);
       generateUserDocument(user, {displayName});
+      setToHome(true)
     }
     catch(error){
       setError('Error Signing up with email and password');
@@ -33,6 +37,7 @@ const SignUp = () => {
       setDisplayName(value);
     }
   };
+  const [toHome, setToHome] = useState(false);
   return (
     <div>
       <h1>Sign Up</h1>
@@ -87,16 +92,19 @@ const SignUp = () => {
           Sign up
           </button>
           {error !== null && (
-          <div className="error">
-            {error}
-          </div>
+            <div className="error">
+              {error}
+            </div>
           )}
-          <h2>or</h2>
+          {toHome ? <Redirect to={{ pathname:"/" }} /> : null}
+          {/* <h2>
+            or
+          </h2>
           <button
             className="bg-red-500 hover:bg-red-600 w-full py-2 text-white " onClick={signInWithGoogle}
           >
             Sign In with Google
-          </button>
+          </button> */}
           <p className="text-center my-3">
             Already have an account?{" "}
             <Link to="/" className="text-blue-500 hover:text-blue-600">

@@ -1,16 +1,25 @@
-import React, {Fragment, useContext, useState, useRef} from 'react';
-import Select from 'react-select'
+import React from 'react';
 import { Link } from "react-router-dom";
-import {auth} from "../Firebase";
-import { UserContext } from '../providers/UserProvider';
-import Review from '../Review';
+import { Version, ManualVersion } from './Application';
 
 export default function HeaderSignedOut() {
-    const user = useContext(UserContext);
+    //const user = useContext(UserContext);
 
     return(
-        <div>
-
+        <div className="SiteMenu" >
+            <div className="Version">
+                v {ManualVersion} {Version}
+            </div>
+            <div className="SiteHeader"> 
+                Not Signed In
+                <Link to="/">
+                    <div className="bn39" href="/">
+                        <span className="bn39span" >
+                            Sign In
+                        </span>
+                    </div>
+                </Link>
+            </div> 
 
             <div className="SiteMenu">                               
                 <Link to="/home">
@@ -23,15 +32,7 @@ export default function HeaderSignedOut() {
                     <button type="menubutton" className="headerbutton" >About</button>
                 </Link>
             </div>
-
-            <div className="SiteHeader"> 
-                Not Signed In
-                <Link to="/">
-                    <a className="bn39" href="/"><span className="bn39span" >Sign In</span></a>
-                </Link>
-            </div> 
             <p/>
-
         </div>
     )
 };
